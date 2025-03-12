@@ -1,9 +1,11 @@
 export type Notification = {
     id: string;
-    header?: string;
-    text: string;
+    title?: string;
+    content: string;
     level: 'info' | 'alert' | 'error';
-    link?: string;
+    modified_at: string;
+    external_url?: string;
+    external_url_text?: string;
 }
 
 export type NotificationComponent = {

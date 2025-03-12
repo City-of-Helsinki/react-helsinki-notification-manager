@@ -5,7 +5,7 @@ import "./NotificationList.scss";
 
 const NotificationList = (props: {
     notifications: Array<NotificationType>
-    closeNotification: (id: string) => void
+    closeNotification: (notification: NotificationType) => void
 }) => {
 
     const { notifications, closeNotification } = props;
@@ -15,9 +15,14 @@ const NotificationList = (props: {
             { notifications.map(notification => {
                 return (
                     <div key={notification.id} className="notification-container">
-                        <button className="notification-closeBtn" onClick={() => closeNotification(notification.id)}>X</button>
-                        <NotificationComponent type={notification.level as HDSNotificationType} label={notification.header}>
-                            <p>{notification.text}</p>
+                        <button className="notification-closeBtn" onClick={() => closeNotification(notification)}>X</button>
+                        <NotificationComponent type={notification.level as HDSNotificationType} label={notification.title}>
+                            <p>{notification.content}</p>
+                            {notification.external_url && 
+                                <p>
+                                    <a href={notification.external_url}>{notification.external_url_text || notification.external_url}</a>
+                                </p>
+                            }
                         </NotificationComponent>
                     </div>
                 );

@@ -1,21 +1,25 @@
 import React, { useState }  from 'react';
 import { Notification } from './types';
 import NotificationList from './components/NotificationList';
- 
-const closedNotificationStorage = localStorage.getItem('closedNotifications');
-const closedNotifications = closedNotificationStorage ? JSON.parse(closedNotificationStorage) : [];
+import { getClosedNotifications, updateClosedNotifications, getNotificationHash } from './utils.js';
 
 export const NotificationService = (props: { notifications: Array<Notification> }) => {
   const { notifications } = props;
+  const [closedNotifications] = useState(getClosedNotifications(notifications));
 
   const [visibleNotifications, setVisibleNotifications] = useState(() => {
-      return notifications.filter((notification: Notification) => !closedNotifications.includes(notification.id) || notification.level === 'error');
+      return notifications.filter(
+        (notification: Notification) => !closedNotifications.includes(
+          getNotificationHash(notification)
+        ) || notification.level === 'error'
+      );
   });
 
-  const closeNotification = (id: string) => {
-    closedNotifications.push(id);
-    localStorage.setItem('closedNotifications', JSON.stringify(closedNotifications));
-    setVisibleNotifications(notifications.filter((notification: Notification) => !closedNotifications.includes(notification.id)));
+  const closeNotification = (notification: Notification) => {
+    const notificationHash = getNotificationHash(notification);
+    closedNotifications.push(notificationHash);
+    updateClosedNotifications(closedNotifications);
+    setVisibleNotifications(notifications.filter((n: Notification) => !closedNotifications.includes(getNotificationHash(n))));
   }
   
   const showAllNotifications = () => {
