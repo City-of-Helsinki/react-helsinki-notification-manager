@@ -15,8 +15,13 @@ const NotificationList = (props: {
             { notifications.map(notification => {
                 return (
                     <div key={notification.id} className="notification-container">
-                        <button className="notification-closeBtn" onClick={() => closeNotification(notification)}>X</button>
-                        <NotificationComponent type={notification.level as HDSNotificationType} label={notification.title}>
+                        <NotificationComponent 
+                            type={notification.level as HDSNotificationType}
+                            label={notification.title}
+                            dismissible={true}
+                            closeButtonLabelText="Sulje ilmoitus"
+                            onClose={() => closeNotification(notification)}
+                        >
                             <p>{notification.content}</p>
                             {notification.external_url && 
                                 <p>
