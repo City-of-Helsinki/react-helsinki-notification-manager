@@ -1,12 +1,11 @@
-import React, { useState }  from 'react';
+import React, { useEffect, useState }  from 'react';
 import { Notification } from './types';
 import NotificationList from './components/NotificationList';
 import { getClosedNotifications, updateClosedNotifications, getNotificationHash } from './utils.js';
 
 export const NotificationService = (props: { notifications: Array<Notification> }) => {
   const { notifications } = props;
-  const [closedNotifications] = useState(getClosedNotifications(notifications));
-
+  const [closedNotifications, setClosedNotifications] = useState(getClosedNotifications(notifications));
   const [visibleNotifications, setVisibleNotifications] = useState(() => {
       return notifications.filter(
         (notification: Notification) => !closedNotifications.includes(
@@ -14,6 +13,17 @@ export const NotificationService = (props: { notifications: Array<Notification> 
         )
       );
   });
+
+  useEffect(() => {
+    const newClosedNotifications = getClosedNotifications(notifications);
+    setClosedNotifications(newClosedNotifications);
+    setVisibleNotifications(notifications.filter(
+      (notification: Notification) => !newClosedNotifications.includes(
+        getNotificationHash(notification)
+      )
+    ));
+  }, [notifications]);
+
 
   const closeNotification = (notification: Notification) => {
     const notificationHash = getNotificationHash(notification);
