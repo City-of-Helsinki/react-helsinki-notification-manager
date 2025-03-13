@@ -1,6 +1,6 @@
 import React from "react";
 import { Notification as NotificationType } from "../types";
-import { Notification as NotificationComponent, NotificationType as HDSNotificationType } from 'hds-react'
+import { Notification as NotificationComponent, NotificationType as HDSNotificationType, NotificationSize } from 'hds-react'
 import "./NotificationList.scss";
 
 const NotificationList = (props: {
@@ -21,12 +21,14 @@ const NotificationList = (props: {
                             dismissible={true}
                             closeButtonLabelText="Sulje ilmoitus"
                             onClose={() => closeNotification(notification)}
+                            size={NotificationSize.Medium}
                         >
-                            <p>{notification.content}</p>
+                            {notification.content}
                             {notification.external_url && 
-                                <p>
+                                <>
+                                    <br/>
                                     <a href={notification.external_url}>{notification.external_url_text || notification.external_url}</a>
-                                </p>
+                                </>
                             }
                         </NotificationComponent>
                     </div>

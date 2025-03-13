@@ -11,7 +11,7 @@ export const NotificationService = (props: { notifications: Array<Notification> 
       return notifications.filter(
         (notification: Notification) => !closedNotifications.includes(
           getNotificationHash(notification)
-        ) || notification.level === 'error'
+        )
       );
   });
 
