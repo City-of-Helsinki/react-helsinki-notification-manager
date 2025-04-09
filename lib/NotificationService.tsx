@@ -21,7 +21,6 @@ export const NotificationService = (props: {
 
   useEffect(() => {
     if (language) {
-      console.debug('ois pitänyt vaihtaa kieltä', language);
       i18config.changeLanguage(language);
     }
   }, [language]);
@@ -43,19 +42,10 @@ export const NotificationService = (props: {
     updateClosedNotifications(closedNotifications);
     setVisibleNotifications(notifications.filter((n: Notification) => !closedNotifications.includes(getNotificationHash(n))));
   }
-  
-  const showAllNotifications = () => {
-    localStorage.removeItem('closedNotifications');
-    closedNotifications.splice(0, closedNotifications.length);
-    setVisibleNotifications(notifications);
-  }
 
   return (
     <I18nextProvider i18n={i18config}>
       <NotificationList notifications={visibleNotifications} onClose={closeNotification} />
-      {visibleNotifications.length < notifications.length && 
-        <button onClick={() => showAllNotifications()}>Näytä kaikki ilmoitukset</button>
-      }
     </I18nextProvider>
   );
 }

@@ -1,3 +1,4 @@
+import { Notification } from './types';
 
 export function getClosedNotifications(notifications = []) {
     const closedNotificationStorage = localStorage.getItem('closedNotifications');
@@ -7,7 +8,7 @@ export function getClosedNotifications(notifications = []) {
     return closedNotifications;
 }
 
-export function clearOutdatedNotifications(notifications, closedNotifications) {
+export function clearOutdatedNotifications(notifications: Notification[], closedNotifications: string[]) {
     return notifications.filter(
         (notification) => notification.level !== 'error'
     ).filter((notification) => {
@@ -16,10 +17,10 @@ export function clearOutdatedNotifications(notifications, closedNotifications) {
     }).map((notification) => getNotificationHash(notification));
 }
 
-export function getNotificationHash(notification) {
+export function getNotificationHash(notification: Notification) {
     return "".concat(notification.modified_at, '#', notification.id);
 }
 
-export function updateClosedNotifications(notificationHashes) {
+export function updateClosedNotifications(notificationHashes: string[]) {
     localStorage.setItem('closedNotifications', JSON.stringify(notificationHashes));
 }
