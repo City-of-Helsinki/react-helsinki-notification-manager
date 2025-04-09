@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import { NotificationService } from "../lib/NotificationService";
 import type { Notification } from "../lib/types";
 
-
-
 const App: React.FC = () => {
+    const [language, setLanguage] = useState('fi');
     const tempNotifications: Notification[] = [ 
         {
             id: '1',
@@ -51,7 +50,15 @@ const App: React.FC = () => {
 
     return (
         <>
-            <NotificationService notifications={notifications}/>
+            <select 
+                value={language} 
+                onChange={(e) => setLanguage(e.target.value)}
+            >
+                <option value="fi">Finnish</option>
+                <option value="sv">Swedish</option>
+                <option value="en">English</option>
+            </select>
+            <NotificationService notifications={notifications} language={language} />
             <button onClick={() => addNotification()}>Click me</button>
         </>
     );

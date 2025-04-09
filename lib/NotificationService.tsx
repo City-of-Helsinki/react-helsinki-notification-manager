@@ -1,10 +1,15 @@
 import React, { useEffect, useState }  from 'react';
 import { Notification } from './types';
 import NotificationList from './components/NotificationList';
+import i18config from './i18n';
+import { I18nextProvider } from 'react-i18next';
 import { getClosedNotifications, updateClosedNotifications, getNotificationHash } from './utils.js';
 
-export const NotificationService = (props: { notifications: Array<Notification> }) => {
-  const { notifications } = props;
+export const NotificationService = (props: {
+    notifications: Array<Notification>, 
+    language?: string,
+  }) => {
+  const { notifications, language = 'fi' } = props;
   const [closedNotifications, setClosedNotifications] = useState(getClosedNotifications(notifications));
   const [visibleNotifications, setVisibleNotifications] = useState(() => {
       return notifications.filter(
@@ -13,6 +18,13 @@ export const NotificationService = (props: { notifications: Array<Notification> 
         )
       );
   });
+
+  useEffect(() => {
+    if (language) {
+      console.debug('ois pitänyt vaihtaa kieltä', language);
+      i18config.changeLanguage(language);
+    }
+  }, [language]);
 
   useEffect(() => {
     const newClosedNotifications = getClosedNotifications(notifications);
@@ -39,11 +51,11 @@ export const NotificationService = (props: { notifications: Array<Notification> 
   }
 
   return (
-    <>
-      <NotificationList notifications={visibleNotifications} closeNotification={closeNotification} />
+    <I18nextProvider i18n={i18config}>
+      <NotificationList notifications={visibleNotifications} onClose={closeNotification} />
       {visibleNotifications.length < notifications.length && 
         <button onClick={() => showAllNotifications()}>Näytä kaikki ilmoitukset</button>
       }
-    </>
+    </I18nextProvider>
   );
 }

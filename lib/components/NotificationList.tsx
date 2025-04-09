@@ -1,14 +1,19 @@
 import React from "react";
 import { Notification as NotificationType } from "../types";
-import { Notification as NotificationComponent, NotificationType as HDSNotificationType, NotificationSize } from 'hds-react'
+import { Notification as NotificationComponent, NotificationType as NotificationLevel, NotificationSize, Link } from 'hds-react'
 import "./NotificationList.scss";
+import { useTranslation } from "react-i18next";
 
 const NotificationList = (props: {
     notifications: Array<NotificationType>
-    closeNotification: (notification: NotificationType) => void
+    onClose: (notification: NotificationType) => void,
 }) => {
-
-    const { notifications, closeNotification } = props;
+    const { t } = useTranslation('hns');
+    const { notifications, onClose } = props;
+    const closeButtonLabelText = t('close');
+    const notificationAriaLabel = t('notificationAriaLabel');
+    const openExternalDomainAriaLabel = t('openExternalDomainAriaLabel');
+    const openInNewTabAriaLabel = t('openNewTabAriaLabel');
 
     return (
         <>
@@ -16,18 +21,27 @@ const NotificationList = (props: {
                 return (
                     <div key={notification.id} className="notification-container">
                         <NotificationComponent 
-                            type={notification.level as HDSNotificationType}
+                            type={notification.level as NotificationLevel}
                             label={notification.title}
                             dismissible={true}
-                            closeButtonLabelText="Sulje ilmoitus"
-                            onClose={() => closeNotification(notification)}
+                            closeButtonLabelText={closeButtonLabelText}
+                            onClose={() => onClose(notification)}
                             size={NotificationSize.Medium}
+                            notificationAriaLabel={notificationAriaLabel}
                         >
                             {notification.content}
                             {notification.external_url && 
                                 <>
                                     <br/>
-                                    <a href={notification.external_url}>{notification.external_url_text || notification.external_url}</a>
+                                    <Link 
+                                        href={notification.external_url}
+                                        external
+                                        openInNewTab
+                                        openInNewTabAriaLabel={openInNewTabAriaLabel}
+                                        openInExternalDomainAriaLabel={openExternalDomainAriaLabel}
+                                    >
+                                        {notification.external_url_text || notification.external_url}
+                                    </Link>
                                 </>
                             }
                         </NotificationComponent>
