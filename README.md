@@ -45,12 +45,11 @@ function App() {
 ## API Reference
 
 ### NotificationService Props
-```markdown
+
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `notifications` | `Array<Notification>` | `[]` | Array of notification objects to display |
 | `language` | `string` | `'fi'` | Language code (supports 'fi', 'sv', 'en') |
-```
 
 ### Notification Object Format
 
