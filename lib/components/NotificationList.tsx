@@ -1,8 +1,14 @@
+import { 
+    Notification as NotificationComponent,
+    NotificationType as NotificationLevel,
+    NotificationSize,
+    Link } from 'hds-react'
 import React from "react";
-import { Notification as NotificationType } from "../types";
-import { Notification as NotificationComponent, NotificationType as NotificationLevel, NotificationSize, Link } from 'hds-react'
-import "./NotificationList.scss";
 import { useTranslation } from "react-i18next";
+
+import { Notification as NotificationType } from "../types";
+
+import "./NotificationList.scss";
 
 const NotificationList = (props: {
     notifications: Array<NotificationType>

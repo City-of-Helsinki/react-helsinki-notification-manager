@@ -1,6 +1,6 @@
 import { Notification } from './types';
 
-export function getClosedNotifications(notifications = []) {
+export function getClosedNotifications(notifications: Notification[] = []) {
     const closedNotificationStorage = localStorage.getItem('closedNotifications');
     let closedNotifications = closedNotificationStorage ? JSON.parse(closedNotificationStorage) : [];
     closedNotifications = clearOutdatedNotifications(notifications, closedNotifications);
