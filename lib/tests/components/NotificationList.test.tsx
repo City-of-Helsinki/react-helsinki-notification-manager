@@ -1,9 +1,10 @@
-import React from 'react';
 import { render, screen, fireEvent, act } from '@testing-library/react';
-import { vi, expect, test, describe } from 'vitest';
+import React from 'react';
 import { I18nextProvider } from 'react-i18next';
-import i18n from '../../i18n';
+import { vi, expect, test, describe } from 'vitest';
+
 import NotificationList from '../../components/NotificationList';
+import i18n from '../../i18n';
 import { Notification } from '../../types';
 
 // Mock the HDS-React components

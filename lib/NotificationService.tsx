@@ -1,8 +1,9 @@
 import React, { useEffect, useState }  from 'react';
-import { Notification } from './types';
+import { I18nextProvider } from 'react-i18next';
+
 import NotificationList from './components/NotificationList';
 import i18config from './i18n';
-import { I18nextProvider } from 'react-i18next';
+import { Notification } from './types';
 import { getClosedNotifications, updateClosedNotifications, getNotificationHash } from './utils.js';
 
 export const NotificationService = (props: {
@@ -10,7 +11,9 @@ export const NotificationService = (props: {
     language?: string,
   }) => {
   const { notifications, language = 'fi' } = props;
-  const [closedNotifications, setClosedNotifications] = useState(getClosedNotifications(notifications));
+  const [closedNotifications, setClosedNotifications] = useState(
+    getClosedNotifications(notifications)
+  );
   const [visibleNotifications, setVisibleNotifications] = useState(() => {
       return notifications.filter(
         (notification: Notification) => !closedNotifications.includes(
@@ -40,7 +43,9 @@ export const NotificationService = (props: {
     const notificationHash = getNotificationHash(notification);
     closedNotifications.push(notificationHash);
     updateClosedNotifications(closedNotifications);
-    setVisibleNotifications(notifications.filter((n: Notification) => !closedNotifications.includes(getNotificationHash(n))));
+    setVisibleNotifications(notifications.filter(
+      (n: Notification) => !closedNotifications.includes(getNotificationHash(n))
+    ));
   }
 
   return (

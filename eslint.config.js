@@ -1,28 +1,89 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import tseslint from 'typescript-eslint'
+import eslint from '@eslint/js';
+import stylisticTsPlugin from '@stylistic/eslint-plugin-ts';
+import eslintConfigPrettier from 'eslint-config-prettier';
+import importPlugin from 'eslint-plugin-import';
+import reactPlugin from 'eslint-plugin-react';
+import reactHooksPlugin from 'eslint-plugin-react-hooks';
+import jestPlugin from 'eslint-plugin-jest';
+import tseslint from 'typescript-eslint';
 
-export default tseslint.config(
-  { ignores: ['dist'] },
-  {
-    extends: [js.configs.recommended, ...tseslint.configs.recommended],
-    files: ['**/*.{ts,tsx}'],
-    languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
+const tsConfig = tseslint.config({
+  files: [
+    'lib/**/*.{ts,tsx}',
+    'src/**/*.{ts,tsx}',
+  ],
+  ignores: ['.next'],
+  extends: [
+    eslint.configs.recommended,
+    tseslint.configs.recommended,
+    importPlugin.flatConfigs.recommended,
+    eslintConfigPrettier,
+  ],
+  settings: {
+    react: {
+      version: 'detect',
     },
-    plugins: {
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
-    },
-    rules: {
-      ...reactHooks.configs.recommended.rules,
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
+    'import/resolver': {
+      typescript: true,
+      node: true,
     },
   },
-)
+  plugins: {
+    '@stylistic/ts': stylisticTsPlugin,
+    react: reactPlugin,
+    'react-hooks': reactHooksPlugin,
+    jest: jestPlugin
+  },
+  languageOptions: {
+    globals: jestPlugin.environments.globals.globals
+  },
+  rules: {
+    '@stylistic/ts/brace-style': [
+      'error',
+      '1tbs',
+      {
+        allowSingleLine: true,
+      },
+    ],
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@stylistic/ts/func-call-spacing': ['error'],
+    '@typescript-eslint/member-ordering': ['warn'],
+    '@typescript-eslint/no-require-imports': ['error'],
+    'react/no-unused-prop-types': [
+      'warn',
+      {
+        skipShapeProps: true,
+      },
+    ],
+    'react-hooks/exhaustive-deps': 'warn',
+    'array-bracket-spacing': ['warn', 'never'],
+    'import/order': [
+      'error',
+      {
+        groups: [
+          'builtin',
+          'external',
+          ['internal', 'parent'],
+          ['sibling', 'index'],
+        ],
+        'newlines-between': 'always',
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
+      },
+    ],
+    'import/no-duplicates': 0,
+    'max-len': [
+      'warn',
+      {
+        code: 120,
+      },
+    ],
+    'no-console': 'warn',
+    'no-plusplus': 'error',
+    'object-curly-spacing': ['warn', 'always'],
+  },
+});
+
+export default tsConfig;

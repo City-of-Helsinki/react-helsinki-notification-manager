@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+
 import { NotificationService } from "../lib/NotificationService";
 import type { Notification } from "../lib/types";
 
 const App: React.FC = () => {
     const [language, setLanguage] = useState('fi');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const tempNotifications: Notification[] = [ 
         {
             id: '1',
@@ -46,7 +48,7 @@ const App: React.FC = () => {
     
     useEffect(() => {
         setNotifications(tempNotifications);
-    }, []);
+    }, [tempNotifications]);
 
     return (
         <>
