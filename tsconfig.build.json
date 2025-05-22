@@ -1,4 +1,10 @@
 {
-    "extends": "./tsconfig.app.json",
-    "include": ["lib"]
+  "extends": "./tsconfig.app.json",
+  "include": ["lib"],
+  "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "./dist",
+    "emitDeclarationOnly": true,
+    "noEmit": false
   }
+}

@@ -1,22 +1,29 @@
 {
   "name": "react-helsinki-notification-manager",
-  "private": true,
   "version": "0.0.1",
   "type": "module",
+  "main": "./dist/react-helsinki-notification-manager.js",
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "files": [
     "dist"
   ],
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/react-helsinki-notification-manager.js",
-      "require": "./dist/react-helsinki-notification-manager.js"
-    }
+      "require": "./dist/react-helsinki-notification-manager.js",
+      "default": "./dist/react-helsinki-notification-manager.js"
+    },
+    "./style.css": "./dist/main.css"
   },
-  "types": "dist/react-helsinki-notification-manager.d.ts",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "tsc --p ./tsconfig.build.json && vite build --mode=development",
-    "lint": "eslint .",
+    "lint": "eslint . && prettier --check .",
+    "lint:fix": "eslint . --fix && prettier --write .",
     "test": "vitest",
     "preview": "vite preview",
     "prepare": "husky"
@@ -61,6 +68,7 @@
     "globals": "^15.14.0",
     "husky": "^9.1.7",
     "jsdom": "^26.0.0",
+    "prettier": "^3.5.3",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.18.2",
     "vite": "^6.0.5",

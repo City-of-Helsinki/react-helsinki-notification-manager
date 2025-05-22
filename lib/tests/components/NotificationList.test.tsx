@@ -10,33 +10,33 @@ import { Notification } from '../../types';
 // Mock the HDS-React components
 vi.mock('hds-react', () => {
   return {
-    Link: ({ 
-        children, 
-        href, 
-        openInNewTabAriaLabel, 
-        openInExternalDomainAriaLabel 
-      }: { 
-        children: React.ReactNode;
-        href: string;
-        openInNewTabAriaLabel?: string;
-        openInExternalDomainAriaLabel?: string;
-      }) => (
-        <a 
-          href={href} 
-          data-testid="notification-link"
-          aria-label={`${children} ${openInNewTabAriaLabel} ${openInExternalDomainAriaLabel}`}
-        >
-          {children}
-        </a>
-      ),
+    Link: ({
+      children,
+      href,
+      openInNewTabAriaLabel,
+      openInExternalDomainAriaLabel,
+    }: {
+      children: React.ReactNode;
+      href: string;
+      openInNewTabAriaLabel?: string;
+      openInExternalDomainAriaLabel?: string;
+    }) => (
+      <a
+        href={href}
+        data-testid='notification-link'
+        aria-label={`${children} ${openInNewTabAriaLabel} ${openInExternalDomainAriaLabel}`}
+      >
+        {children}
+      </a>
+    ),
     Notification: ({
-        children,
-      type, 
-      label, 
-      onClose, 
-      closeButtonLabelText, 
-      notificationAriaLabel 
-    }: { 
+      children,
+      type,
+      label,
+      onClose,
+      closeButtonLabelText,
+      notificationAriaLabel,
+    }: {
       children: React.ReactNode;
       type: string;
       label: string;
@@ -44,15 +44,9 @@ vi.mock('hds-react', () => {
       closeButtonLabelText: string;
       notificationAriaLabel?: string;
     }) => (
-      <div data-testid="hds-notification" data-type={type} data-label={label} aria-label={notificationAriaLabel}>
-        <p data-testid="notification-content">
-            {children}
-        </p>
-        <button 
-          onClick={onClose} 
-          aria-label={closeButtonLabelText}
-          data-testid="close-button"
-        >
+      <div data-testid='hds-notification' data-type={type} data-label={label} aria-label={notificationAriaLabel}>
+        <p data-testid='notification-content'>{children}</p>
+        <button onClick={onClose} aria-label={closeButtonLabelText} data-testid='close-button'>
           {closeButtonLabelText}
         </button>
       </div>
@@ -60,7 +54,7 @@ vi.mock('hds-react', () => {
     NotificationSize: {
       Small: 'small',
       Medium: 'medium',
-      Large: 'large'
+      Large: 'large',
     },
   };
 });
@@ -70,7 +64,7 @@ i18n.changeLanguage('en');
 
 describe('NotificationList Component', () => {
   const mockOnClose = vi.fn();
-  
+
   beforeEach(() => {
     mockOnClose.mockClear();
   });
@@ -79,9 +73,9 @@ describe('NotificationList Component', () => {
     render(
       <I18nextProvider i18n={i18n}>
         <NotificationList notifications={[]} onClose={mockOnClose} />
-      </I18nextProvider>
+      </I18nextProvider>,
     );
-    
+
     const notifications = screen.queryAllByTestId('hds-notification');
     expect(notifications).toHaveLength(0);
   });
@@ -92,23 +86,20 @@ describe('NotificationList Component', () => {
       title: 'Test Notification',
       content: 'This is a test notification content',
       level: 'info',
-      modified_at: '2023-01-01T12:00:00Z'
+      modified_at: '2023-01-01T12:00:00Z',
     };
 
     render(
       <I18nextProvider i18n={i18n}>
-        <NotificationList 
-          notifications={[testNotification]} 
-          onClose={mockOnClose} 
-        />
-      </I18nextProvider>
+        <NotificationList notifications={[testNotification]} onClose={mockOnClose} />
+      </I18nextProvider>,
     );
 
     const notification = screen.getByTestId('hds-notification');
     expect(notification).toBeInTheDocument();
     expect(notification).toHaveAttribute('data-type', 'info');
     expect(notification).toHaveAttribute('data-label', 'Test Notification');
-    
+
     const content = screen.getByTestId('notification-content');
     expect(content).toHaveTextContent('This is a test notification content');
   });
@@ -120,29 +111,26 @@ describe('NotificationList Component', () => {
         title: 'First Notification',
         content: 'First content',
         level: 'info',
-        modified_at: '2023-01-01T12:00:00Z'
+        modified_at: '2023-01-01T12:00:00Z',
       },
       {
         id: '2',
         title: 'Second Notification',
         content: 'Second content',
         level: 'error',
-        modified_at: '2023-01-01T12:00:00Z'
-      }
+        modified_at: '2023-01-01T12:00:00Z',
+      },
     ];
 
     render(
       <I18nextProvider i18n={i18n}>
-        <NotificationList 
-          notifications={testNotifications} 
-          onClose={mockOnClose} 
-        />
-      </I18nextProvider>
+        <NotificationList notifications={testNotifications} onClose={mockOnClose} />
+      </I18nextProvider>,
     );
 
     const notifications = screen.getAllByTestId('hds-notification');
     expect(notifications).toHaveLength(2);
-    
+
     expect(notifications[0]).toHaveAttribute('data-label', 'First Notification');
     expect(notifications[1]).toHaveAttribute('data-label', 'Second Notification');
   });
@@ -153,21 +141,18 @@ describe('NotificationList Component', () => {
       title: 'Test Notification',
       content: 'This is a test notification content',
       level: 'info',
-      modified_at: '2023-01-01T12:00:00Z'
+      modified_at: '2023-01-01T12:00:00Z',
     };
 
     render(
       <I18nextProvider i18n={i18n}>
-        <NotificationList 
-          notifications={[testNotification]} 
-          onClose={mockOnClose} 
-        />
-      </I18nextProvider>
+        <NotificationList notifications={[testNotification]} onClose={mockOnClose} />
+      </I18nextProvider>,
     );
 
     const closeButton = screen.getByTestId('close-button');
     fireEvent.click(closeButton);
-    
+
     expect(mockOnClose).toHaveBeenCalledTimes(1);
     expect(mockOnClose).toHaveBeenCalledWith(testNotification);
   });
@@ -180,16 +165,13 @@ describe('NotificationList Component', () => {
       level: 'info',
       modified_at: '2023-01-01T12:00:00Z',
       external_url: 'https://example.com',
-      external_url_text: 'Visit Example'
+      external_url_text: 'Visit Example',
     };
 
     render(
       <I18nextProvider i18n={i18n}>
-        <NotificationList 
-          notifications={[testNotification]} 
-          onClose={mockOnClose} 
-        />
-      </I18nextProvider>
+        <NotificationList notifications={[testNotification]} onClose={mockOnClose} />
+      </I18nextProvider>,
     );
 
     const link = screen.getByTestId('notification-link');
@@ -205,16 +187,13 @@ describe('NotificationList Component', () => {
       content: 'This is a test notification content',
       level: 'info',
       modified_at: '2023-01-01T12:00:00Z',
-      external_url: 'https://example.com'
+      external_url: 'https://example.com',
     };
 
     render(
       <I18nextProvider i18n={i18n}>
-        <NotificationList 
-          notifications={[testNotification]} 
-          onClose={mockOnClose} 
-        />
-      </I18nextProvider>
+        <NotificationList notifications={[testNotification]} onClose={mockOnClose} />
+      </I18nextProvider>,
     );
 
     const link = screen.getByTestId('notification-link');
@@ -228,36 +207,30 @@ describe('NotificationList Component', () => {
       title: 'Test Notification',
       content: 'This is a test notification content',
       level: 'info',
-      modified_at: '2023-01-01T12:00:00Z'
+      modified_at: '2023-01-01T12:00:00Z',
     };
 
     i18n.changeLanguage('fi');
 
     render(
       <I18nextProvider i18n={i18n}>
-        <NotificationList 
-          notifications={[testNotification]} 
-          onClose={mockOnClose} 
-        />
-      </I18nextProvider>
+        <NotificationList notifications={[testNotification]} onClose={mockOnClose} />
+      </I18nextProvider>,
     );
 
     const closeButton = screen.getByTestId('close-button');
     expect(closeButton).toHaveTextContent('Sulje');
 
     act(() => {
-        // Change language to test dynamic language switching
-        i18n.changeLanguage('en');
-    })
+      // Change language to test dynamic language switching
+      i18n.changeLanguage('en');
+    });
     render(
       <I18nextProvider i18n={i18n}>
-        <NotificationList 
-          notifications={[testNotification]} 
-          onClose={mockOnClose} 
-        />
-      </I18nextProvider>
+        <NotificationList notifications={[testNotification]} onClose={mockOnClose} />
+      </I18nextProvider>,
     );
-    
+
     const englishCloseButton = screen.getAllByTestId('close-button')[1];
     expect(englishCloseButton).toHaveTextContent('Close');
   });

@@ -8,11 +8,8 @@ import jestPlugin from 'eslint-plugin-jest';
 import tseslint from 'typescript-eslint';
 
 const tsConfig = tseslint.config({
-  files: [
-    'lib/**/*.{ts,tsx}',
-    'src/**/*.{ts,tsx}',
-  ],
-  ignores: ['.next'],
+  files: ['lib/**/*.{ts,tsx}', 'src/**/*.{ts,tsx}'],
+  ignores: ['dist', 'node_modules'],
   extends: [
     eslint.configs.recommended,
     tseslint.configs.recommended,
@@ -32,10 +29,10 @@ const tsConfig = tseslint.config({
     '@stylistic/ts': stylisticTsPlugin,
     react: reactPlugin,
     'react-hooks': reactHooksPlugin,
-    jest: jestPlugin
+    jest: jestPlugin,
   },
   languageOptions: {
-    globals: jestPlugin.environments.globals.globals
+    globals: jestPlugin.environments.globals.globals,
   },
   rules: {
     '@stylistic/ts/brace-style': [
@@ -60,12 +57,7 @@ const tsConfig = tseslint.config({
     'import/order': [
       'error',
       {
-        groups: [
-          'builtin',
-          'external',
-          ['internal', 'parent'],
-          ['sibling', 'index'],
-        ],
+        groups: ['builtin', 'external', ['internal', 'parent'], ['sibling', 'index']],
         'newlines-between': 'always',
         alphabetize: {
           order: 'asc',
