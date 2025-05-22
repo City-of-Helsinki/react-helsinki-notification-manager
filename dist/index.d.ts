@@ -8,7 +8,7 @@ export type Notification = {
   modified_at: string;
   external_url?: string;
   external_url_text?: string;
-}
+};
 
 export type NotificationComponent = {
   props: {
@@ -17,8 +17,8 @@ export type NotificationComponent = {
     link?: string;
     level: 'info' | 'alert' | 'error';
     onClose: () => void;
-  }
-}
+  };
+};
 
 export interface NotificationServiceProps {
   notifications: Array<Notification>;

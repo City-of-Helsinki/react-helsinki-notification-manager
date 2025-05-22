@@ -1,8 +1,8 @@
-import { defineConfig, UserConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import { resolve } from 'path'
-import dts from 'vite-plugin-dts'
-import { libInjectCss } from 'vite-plugin-lib-inject-css'
+import { defineConfig, UserConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import { resolve } from 'path';
+import dts from 'vite-plugin-dts';
+import { libInjectCss } from 'vite-plugin-lib-inject-css';
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -11,8 +11,8 @@ export default defineConfig({
     libInjectCss(),
     dts({
       include: ['lib'],
-      insertTypesEntry: true
-    })
+      insertTypesEntry: true,
+    }),
   ],
   build: {
     copyPublicDir: false,
@@ -23,9 +23,7 @@ export default defineConfig({
       formats: ['es'],
     },
     rollupOptions: {
-      external: [
-        'react', 'react-dom', 'react/jsx-runtime'
-      ],
+      external: ['react', 'react-dom', 'react/jsx-runtime'],
       output: {
         globals: {
           'react-dom': 'ReactDom',
@@ -33,11 +31,11 @@ export default defineConfig({
           'react/jsx-runtime': 'ReactJsxRuntime',
         },
       },
-    }
+    },
   },
   test: {
     environment: 'jsdom',
     globals: true,
     setupFiles: './lib/tests/setup.ts',
-  }
-} as UserConfig)
+  },
+} as UserConfig);
