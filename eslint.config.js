@@ -12,7 +12,6 @@ const tsConfig = tseslint.config({
     'lib/**/*.{ts,tsx}',
     'src/**/*.{ts,tsx}',
   ],
-  ignores: ['.next'],
   extends: [
     eslint.configs.recommended,
     tseslint.configs.recommended,
