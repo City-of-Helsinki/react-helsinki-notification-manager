@@ -1,5 +1,5 @@
-import { createInstance } from 'i18next';
-const i18n = createInstance({
+import { createInstance, i18n as I18nInstance } from 'i18next';
+const i18n: I18nInstance = createInstance({
     fallbackLng: 'fi',
     interpolation: {
         escapeValue: false, // React already does escaping

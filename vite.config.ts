@@ -11,13 +11,15 @@ export default defineConfig({
     libInjectCss(),
     dts({
       include: ['lib'],
-      insertTypesEntry: true,
+      insertTypesEntry: true
     })
   ],
   build: {
     copyPublicDir: false,
     lib: {
       entry: resolve(__dirname, 'lib/main.tsx'),
+      name: 'ReactHelsinkiNotificationManager',
+      fileName: 'react-helsinki-notification-manager',
       formats: ['es'],
     },
     rollupOptions: {

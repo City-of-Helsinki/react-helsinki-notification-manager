@@ -2,6 +2,7 @@
   "name": "react-helsinki-notification-manager",
   "version": "0.0.1",
   "type": "module",
+  "main": "./dist/react-helsinki-notification-manager.js",
   "engines": {
     "node": ">=22.0.0"
   },
@@ -10,11 +11,14 @@
   ],
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/react-helsinki-notification-manager.js",
-      "require": "./dist/react-helsinki-notification-manager.js"
-    }
+      "require": "./dist/react-helsinki-notification-manager.js",
+      "default": "./dist/react-helsinki-notification-manager.js"
+    },
+    "./style.css": "./dist/main.css"
   },
-  "types": "dist/react-helsinki-notification-manager.d.ts",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "tsc --p ./tsconfig.build.json && vite build --mode=development",
