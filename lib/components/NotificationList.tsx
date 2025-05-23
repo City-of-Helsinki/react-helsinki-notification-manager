@@ -20,7 +20,6 @@ const NotificationList = (props: {
   const closeButtonLabelText = t('close');
   const notificationAriaLabel = t('notificationAriaLabel');
   const openExternalDomainAriaLabel = t('openExternalDomainAriaLabel');
-  const openInNewTabAriaLabel = t('openNewTabAriaLabel');
 
   return (
     <>

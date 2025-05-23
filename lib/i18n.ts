@@ -10,7 +10,6 @@ const i18n: I18nInstance = createInstance({
         // Make 'hns' a namespace, not a key
         close: 'Sulje',
         notificationAriaLabel: 'Ilmoitus',
-        openNewTabAriaLabel: 'Avaa uusi välilehti',
         openExternalDomainAriaLabel: 'Avaa ulkoinen verkkosivusto',
       },
     },
@@ -19,7 +18,6 @@ const i18n: I18nInstance = createInstance({
         // Make 'hns' a namespace, not a key
         close: 'Stäng',
         notificationAriaLabel: 'Meddelande',
-        openNewTabAriaLabel: 'Öppna ny flik',
         openExternalDomainAriaLabel: 'Öppna extern webbplats',
       },
     },
@@ -28,7 +26,6 @@ const i18n: I18nInstance = createInstance({
         // Make 'hns' a namespace, not a key
         close: 'Close',
         notificationAriaLabel: 'Notification',
-        openNewTabAriaLabel: 'Open new tab',
         openExternalDomainAriaLabel: 'Open external website',
       },
     },
