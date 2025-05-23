@@ -18,10 +18,30 @@ npm install react-helsinki-notification-service
 yarn add react-helsinki-notification-service
 ```
 
-## Usage
+## Installation & Usage
+
+This library uses peer dependencies for React, HDS, and i18next. Please see [DEPENDENCY_MANAGEMENT.md](./DEPENDENCY_MANAGEMENT.md) for detailed installation instructions and troubleshooting common dependency issues.
+
+```bash
+# Install the library
+npm install react-helsinki-notification-manager
+
+# Install peer dependencies (if you don't already have them)
+npm install react@^18.0.0 react-dom@^18.0.0 hds-react@^4.2.0 i18next@^24.2.3 react-i18next@^15.4.1
+```
+
+### Basic Usage
 
 ```jsx
-import { NotificationService } from 'react-helsinki-notification-service';
+import { NotificationService } from 'react-helsinki-notification-manager';
+import { I18nextProvider } from 'react-i18next';
+import i18next from 'i18next';
+
+// Initialize i18next (required for the component)
+i18next.init({
+  lng: 'fi',
+  resources: {} // Add your translations here
+});
 
 // Sample notification data
 const notifications = [
@@ -35,7 +55,11 @@ const notifications = [
 ];
 
 function App() {
-  return <NotificationService notifications={notifications} language='fi' />;
+  return (
+    <I18nextProvider i18n={i18next}>
+      <NotificationService notifications={notifications} language='fi' />
+    </I18nextProvider>
+  );
 }
 ```
 

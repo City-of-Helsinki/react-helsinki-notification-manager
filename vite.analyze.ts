@@ -1,8 +1,10 @@
+// Add bundle analyzer plugin to vite config
 import { defineConfig, UserConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
 import dts from 'vite-plugin-dts';
 import { libInjectCss } from 'vite-plugin-lib-inject-css';
+import { visualizer } from 'rollup-plugin-visualizer';
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -12,6 +14,12 @@ export default defineConfig({
     dts({
       include: ['lib'],
       insertTypesEntry: true,
+    }),
+    visualizer({
+      filename: 'dist/stats.html',
+      open: true,
+      gzipSize: true,
+      brotliSize: true,
     }),
   ],
   build: {
