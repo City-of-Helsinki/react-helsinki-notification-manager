@@ -33,7 +33,7 @@ const App: React.FC = () => {
     },
   ];
 
-  const [notifications, setNotifications] = useState<Notification[]>([]);
+  const [notifications, setNotifications] = useState<Notification[]>(tempNotifications);
 
   const addNotification = () => {
     const newNotification: Notification = {
@@ -45,10 +45,6 @@ const App: React.FC = () => {
     };
     setNotifications([...notifications, newNotification]);
   };
-
-  useEffect(() => {
-    setNotifications(tempNotifications);
-  }, [tempNotifications]);
 
   return (
     <>

@@ -43,8 +43,6 @@ const NotificationList = (props: {
                   <Link
                     href={notification.external_url}
                     external
-                    openInNewTab
-                    openInNewTabAriaLabel={openInNewTabAriaLabel}
                     openInExternalDomainAriaLabel={openExternalDomainAriaLabel}
                   >
                     {notification.external_url_text || notification.external_url}
