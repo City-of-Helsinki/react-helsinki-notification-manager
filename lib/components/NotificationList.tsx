@@ -8,7 +8,6 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Notification as NotificationType } from '../types';
-
 import './NotificationList.scss';
 
 const NotificationList = (props: {
