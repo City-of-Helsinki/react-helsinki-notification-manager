@@ -3,7 +3,7 @@ import { useState as N, useEffect as b } from "react";
 import { useTranslation as g, I18nextProvider as A } from "react-i18next";
 import { Notification as v, NotificationSize as S, Link as C } from "hds-react";
 import { createInstance as E } from "i18next";
-import './main.css';const D = (i) => {
+const D = (i) => {
   const { t } = g("hns"), { notifications: e, onClose: o } = i, c = t("close"), f = t("notificationAriaLabel"), r = t("openExternalDomainAriaLabel");
   return /* @__PURE__ */ s(m, { children: e.map((n) => /* @__PURE__ */ s("div", { className: "notification-container", children: /* @__PURE__ */ p(
     v,

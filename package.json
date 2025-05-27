@@ -31,8 +31,7 @@
     "example": "./scripts/generate-example.sh"
   },
   "dependencies": {
-    "sass": "^1.89.0",
-    "vite-plugin-lib-inject-css": "^2.2.1"
+    "sass": "^1.89.0"
   },
   "peerDependencies": {
     "hds-react": "^4.2.0",
