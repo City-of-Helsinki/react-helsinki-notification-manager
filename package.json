@@ -16,7 +16,7 @@
       "require": "./dist/react-helsinki-notification-manager.js",
       "default": "./dist/react-helsinki-notification-manager.js"
     },
-    "./style.css": "./dist/main.css"
+    "./style.css": "./dist/react-helsinki-notification-manager.css"
   },
   "types": "./dist/index.d.ts",
   "scripts": {
