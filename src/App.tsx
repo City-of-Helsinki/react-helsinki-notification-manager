@@ -13,6 +13,7 @@ i18next.init({
 
 const App: React.FC = () => {
   const [language, setLanguage] = useState('fi');
+  const [types, setTypes] = useState(['info', 'alert', 'error']);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const tempNotifications: Notification[] = [
     {
@@ -69,6 +70,21 @@ const App: React.FC = () => {
             <option value='sv'>Swedish</option>
             <option value='en'>English</option>
           </select>
+          <select
+            id="visible-types-select"
+            onChange={(e) => {
+              if (e.target.value === 'all') {
+                setTypes(['info', 'alert', 'error']);
+                return;
+              }
+              setTypes(Array.from(e.target.selectedOptions, option => option.value))
+            }}
+            > 
+              <option value='all'>All</option>
+              <option value='info'>Info</option>
+              <option value='alert'>Alert</option>
+              <option value='error'>Error</option>
+          </select>
           <button 
             onClick={() => addNotification()}
             style={{ 
@@ -83,7 +99,7 @@ const App: React.FC = () => {
           </button>
         </div>
         
-        <NotificationService notifications={notifications} language={language} />
+        <NotificationService notifications={notifications} language={language} visibleTypes={types}/>
       </div>
     </I18nextProvider>
   );

@@ -6,12 +6,16 @@ import i18config from './i18n';
 import { Notification } from './types';
 import { getClosedNotifications, updateClosedNotifications, getNotificationHash } from './utils.js';
 
-export const NotificationService = (props: { notifications: Array<Notification>; language?: string }) => {
-  const { notifications, language = 'fi' } = props;
+export const NotificationService = (props: {
+    notifications: Array<Notification>;
+    language?: string,
+    visibleTypes?: Array<'info' | 'alert' | 'error'>;
+  }) => {
+  const { notifications, language = 'fi', visibleTypes=['info', 'alert', 'error'] } = props;
   const [closedNotifications, setClosedNotifications] = useState(getClosedNotifications(notifications));
   const [visibleNotifications, setVisibleNotifications] = useState(() => {
     return notifications.filter(
-      (notification: Notification) => !closedNotifications.includes(getNotificationHash(notification)),
+      (notification: Notification) => !closedNotifications.includes(getNotificationHash(notification))  && visibleTypes.includes(notification.level),
     );
   });
 
@@ -26,17 +30,17 @@ export const NotificationService = (props: { notifications: Array<Notification>;
     setClosedNotifications(newClosedNotifications);
     setVisibleNotifications(
       notifications.filter(
-        (notification: Notification) => !newClosedNotifications.includes(getNotificationHash(notification)),
+        (notification: Notification) => !newClosedNotifications.includes(getNotificationHash(notification)) && visibleTypes.includes(notification.level),
       ),
     );
-  }, [notifications]);
+  }, [notifications, visibleTypes]);
 
   const closeNotification = (notification: Notification) => {
     const notificationHash = getNotificationHash(notification);
     closedNotifications.push(notificationHash);
     updateClosedNotifications(closedNotifications);
     setVisibleNotifications(
-      notifications.filter((n: Notification) => !closedNotifications.includes(getNotificationHash(n))),
+      notifications.filter((notification: Notification) => !closedNotifications.includes(getNotificationHash(notification)) && visibleTypes.includes(notification.level)),
     );
   };
 
