@@ -9,6 +9,9 @@ export function getClosedNotifications(notifications: Notification[] = []) {
 }
 
 export function clearOutdatedNotifications(notifications: Notification[], closedNotifications: string[]) {
+  if (notifications.length === 0) {
+    return notifications;
+  }
   return notifications
     .filter((notification) => notification.level !== 'error')
     .filter((notification) => {
