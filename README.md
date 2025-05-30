@@ -67,10 +67,11 @@ function App() {
 
 ### NotificationService Props
 
-| Prop            | Type                  | Default | Description                               |
-| --------------- | --------------------- | ------- | ----------------------------------------- |
-| `notifications` | `Array<Notification>` | `[]`    | Array of notification objects to display  |
-| `language`      | `string`              | `'fi'`  | Language code (supports 'fi', 'sv', 'en') |
+| Prop            | Type                  | Default                         | Description                               |
+| --------------- | --------------------- | ------------------------------- | ----------------------------------------- |
+| `notifications` | `Array<Notification>` | `[]`                            | Array of notification objects to display  |
+| `language`      | `string`              | `'fi'`                          | Language code (supports 'fi', 'sv', 'en') |
+| `visibletypes`  | `Array<string>`       | `['info', 'warning', 'error']`  | Array of Notification type strings        |
 
 ### Notification Object Format
 
