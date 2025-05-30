@@ -4,7 +4,11 @@ import { I18nextProvider } from 'react-i18next';
 import NotificationList from './components/NotificationList';
 import i18config from './i18n';
 import { Notification } from './types';
-import { getClosedNotifications, updateClosedNotifications, getNotificationHash } from './utils.js';
+import { 
+  getClosedNotifications, 
+  updateClosedNotifications, 
+  getNotificationHash 
+} from './utils.ts';
 
 export const NotificationService = (props: {
     notifications: Array<Notification>;
@@ -15,7 +19,9 @@ export const NotificationService = (props: {
   const [closedNotifications, setClosedNotifications] = useState(getClosedNotifications(notifications));
   const [visibleNotifications, setVisibleNotifications] = useState(() => {
     return notifications.filter(
-      (notification: Notification) => !closedNotifications.includes(getNotificationHash(notification))  && visibleTypes.includes(notification.level),
+      (notification: Notification) => 
+        !closedNotifications.includes(getNotificationHash(notification)) && 
+        visibleTypes.includes(notification.level),
     );
   });
 
@@ -26,21 +32,36 @@ export const NotificationService = (props: {
   }, [language]);
 
   useEffect(() => {
+    // Get the latest closed notifications from storage
     const newClosedNotifications = getClosedNotifications(notifications);
     setClosedNotifications(newClosedNotifications);
+    
+    // Update visible notifications based on current closed status
     setVisibleNotifications(
       notifications.filter(
-        (notification: Notification) => !newClosedNotifications.includes(getNotificationHash(notification)) && visibleTypes.includes(notification.level),
+        (notification: Notification) => 
+          !newClosedNotifications.includes(getNotificationHash(notification)) && 
+          visibleTypes.includes(notification.level),
       ),
     );
   }, [notifications, visibleTypes]);
 
   const closeNotification = (notification: Notification) => {
+    // Update storage with this specific notification
+    updateClosedNotifications(notification);
+    
+    // Update local state
     const notificationHash = getNotificationHash(notification);
-    closedNotifications.push(notificationHash);
-    updateClosedNotifications(closedNotifications);
+    const updatedClosedNotifications = [...closedNotifications, notificationHash];
+    setClosedNotifications(updatedClosedNotifications);
+    
+    // Update visible notifications
     setVisibleNotifications(
-      notifications.filter((notification: Notification) => !closedNotifications.includes(getNotificationHash(notification)) && visibleTypes.includes(notification.level)),
+      notifications.filter(
+        (notification: Notification) => 
+          !updatedClosedNotifications.includes(getNotificationHash(notification)) && 
+          visibleTypes.includes(notification.level)
+      ),
     );
   };
 

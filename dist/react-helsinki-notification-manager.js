@@ -1,38 +1,38 @@
-import { jsx as s, Fragment as p, jsxs as N } from "react/jsx-runtime";
-import { useState as b, useEffect as x } from "react";
-import { useTranslation as L, I18nextProvider as v } from "react-i18next";
-import { Notification as A, NotificationSize as S, Link as C } from "hds-react";
-import { createInstance as E } from "i18next";
-const D = (i) => {
-  const { t } = L("hns"), { notifications: e, onClose: o } = i, a = t("close"), f = t("notificationAriaLabel"), u = t("openExternalDomainAriaLabel");
-  return /* @__PURE__ */ s(p, { children: e.map((n) => /* @__PURE__ */ s("div", { className: "notification-container", children: /* @__PURE__ */ N(
-    A,
+import { jsx as a, Fragment as m, jsxs as g } from "react/jsx-runtime";
+import { useState as b, useEffect as S } from "react";
+import { useTranslation as A, I18nextProvider as E } from "react-i18next";
+import { Notification as O, NotificationSize as _, Link as T } from "hds-react";
+import { createInstance as D } from "i18next";
+const k = (e) => {
+  const { t } = A("hns"), { notifications: i, onClose: n } = e, r = t("close"), c = t("notificationAriaLabel"), u = t("openExternalDomainAriaLabel");
+  return /* @__PURE__ */ a(m, { children: i.map((o) => /* @__PURE__ */ a("div", { className: "notification-container", children: /* @__PURE__ */ g(
+    O,
     {
-      type: n.level,
-      label: n.title,
+      type: o.level,
+      label: o.title,
       dismissible: !0,
-      closeButtonLabelText: a,
-      onClose: () => o(n),
-      size: S.Medium,
-      notificationAriaLabel: f,
+      closeButtonLabelText: r,
+      onClose: () => n(o),
+      size: _.Medium,
+      notificationAriaLabel: c,
       children: [
-        n.content,
-        n.external_url && /* @__PURE__ */ N(p, { children: [
-          /* @__PURE__ */ s("br", {}),
-          /* @__PURE__ */ s(
-            C,
+        o.content,
+        o.external_url && /* @__PURE__ */ g(m, { children: [
+          /* @__PURE__ */ a("br", {}),
+          /* @__PURE__ */ a(
+            T,
             {
-              href: n.external_url,
+              href: o.external_url,
               external: !0,
               openInExternalDomainAriaLabel: u,
-              children: n.external_url_text || n.external_url
+              children: o.external_url_text || o.external_url
             }
           )
         ] })
       ]
     }
-  ) }, n.id)) });
-}, d = E({
+  ) }, o.id)) });
+}, d = D({
   fallbackLng: "fi",
   interpolation: {
     escapeValue: !1
@@ -66,43 +66,69 @@ const D = (i) => {
   }
 });
 d.init();
-function h(i = []) {
-  const t = localStorage.getItem("closedNotifications");
-  let e = t ? JSON.parse(t) : [];
-  return e = I(i, e), g(e), e;
+const h = "persistentClosedNotifications", C = "sessionClosedNotifications";
+function x(e = []) {
+  const t = v(e), i = I();
+  return [...t, ...i];
 }
-function I(i, t) {
-  return i.length === 0 ? i : i.filter((e) => e.level !== "error").filter((e) => {
-    const o = r(e);
-    return t.includes(o);
-  }).map((e) => r(e));
+function v(e = []) {
+  const t = localStorage.getItem(h);
+  let i = t ? JSON.parse(t) : [];
+  return e.length > 0 && (i = y(e, i), L(i)), i;
 }
-function r(i) {
-  return "".concat(i.modified_at, "#", i.id);
+function I() {
+  const e = sessionStorage.getItem(C);
+  return e ? JSON.parse(e) : [];
 }
-function g(i) {
-  localStorage.setItem("closedNotifications", JSON.stringify(i));
+function y(e, t) {
+  return e.length === 0 ? t : e.filter(
+    (n) => n.level === "info" || n.level === "alert"
+  ).filter((n) => {
+    const r = l(n);
+    return t.includes(r);
+  }).map((n) => l(n));
 }
-const T = (i) => {
-  const { notifications: t, language: e = "fi", visibleTypes: o = ["info", "alert", "error"] } = i, [a, f] = b(h(t)), [u, n] = b(() => t.filter(
-    (l) => !a.includes(r(l)) && o.includes(l.level)
+function l(e) {
+  return "".concat(e.modified_at, "#", e.id);
+}
+function J(e) {
+  e.level === "error" ? P([
+    ...I(),
+    l(e)
+  ]) : L([
+    ...v([]),
+    l(e)
+  ]);
+}
+function L(e) {
+  localStorage.setItem(h, JSON.stringify(e));
+}
+function P(e) {
+  sessionStorage.setItem(C, JSON.stringify(e));
+}
+const M = (e) => {
+  const { notifications: t, language: i = "fi", visibleTypes: n = ["info", "alert", "error"] } = e, [r, c] = b(x(t)), [u, o] = b(() => t.filter(
+    (s) => !r.includes(l(s)) && n.includes(s.level)
   ));
-  return x(() => {
-    e && d.changeLanguage(e);
-  }, [e]), x(() => {
-    const l = h(t);
-    f(l), n(
+  return S(() => {
+    i && d.changeLanguage(i);
+  }, [i]), S(() => {
+    const s = x(t);
+    c(s), o(
       t.filter(
-        (c) => !l.includes(r(c)) && o.includes(c.level)
+        (f) => !s.includes(l(f)) && n.includes(f.level)
       )
     );
-  }, [t, o]), /* @__PURE__ */ s(v, { i18n: d, children: /* @__PURE__ */ s(D, { notifications: u, onClose: (l) => {
-    const c = r(l);
-    a.push(c), g(a), n(
-      t.filter((m) => !a.includes(r(m)) && o.includes(m.level))
+  }, [t, n]), /* @__PURE__ */ a(E, { i18n: d, children: /* @__PURE__ */ a(k, { notifications: u, onClose: (s) => {
+    J(s);
+    const f = l(s), N = [...r, f];
+    c(N), o(
+      t.filter(
+        (p) => !N.includes(l(p)) && n.includes(p.level)
+      )
     );
   } }) });
 };
 export {
-  T as NotificationService
+  M as NotificationService
 };

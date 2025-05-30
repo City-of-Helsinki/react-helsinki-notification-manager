@@ -6,4 +6,4 @@ export function clearOutdatedNotifications(notifications: Notification[], closed
 
 export function getNotificationHash(notification: Notification): string;
 
-export function updateClosedNotifications(notificationHashes: string[]): void;
+export function updateClosedNotifications(notification: Notification): void;
