@@ -13,11 +13,13 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@v5
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v4
         with:
           node-version: 22
           registry-url: https://registry.npmjs.org/
       - run: yarn --frozen-lockfile
       - run: yarn test  
       - run: yarn build
-      - run: npm publish --provenance --access public
+      - run: npm publish --access public
+        env:
+          NPM_CONFIG_PROVENANCE: true
