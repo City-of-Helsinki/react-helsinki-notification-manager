@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/compare/react-helsinki-notification-manager-v0.1.0...react-helsinki-notification-manager-v0.1.1) (2025-10-03)
+
+
+### Bug Fixes
+
+* Fixed publish to run on releaseplease tags ([#6](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/issues/6)) ([a9238af](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/a9238aff0f60bc8283caa4f5f6fb79638b4598e1))
+
 ## [0.1.0](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/compare/react-helsinki-notification-manager-v0.0.1...react-helsinki-notification-manager-v0.1.0) (2025-10-03)
 
 
