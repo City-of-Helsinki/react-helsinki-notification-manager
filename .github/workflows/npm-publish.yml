@@ -1,4 +1,4 @@
-name: publish
+name: npm publish
 
 on:
   release:
@@ -7,15 +7,16 @@ on:
 jobs:
   publish-npm-stable:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
           registry-url: https://registry.npmjs.org/
-      - run: yarn
+      - run: yarn --frozen-lockfile
       - run: yarn test
       - run: yarn build
-      - run: yarn publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      - run: yarn publish --provenance --ignore-scripts --access public
