@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.3](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/compare/react-helsinki-notification-manager-v0.1.2...react-helsinki-notification-manager-v0.1.3) (2025-10-03)
+
+
+### Bug Fixes
+
+* Downgrade to stable node action ([#10](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/issues/10)) ([28b5f15](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/28b5f1586b80a40b4637cf6b4fc5454183d8ceae))
+
 ## [0.1.2](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/compare/react-helsinki-notification-manager-v0.1.1...react-helsinki-notification-manager-v0.1.2) (2025-10-03)
 
 
