@@ -9,6 +9,10 @@
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/City-of-Helsinki/react-helsinki-notification-manager"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
