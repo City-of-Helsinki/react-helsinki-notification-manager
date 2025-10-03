@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.4](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/compare/react-helsinki-notification-manager-v0.1.3...react-helsinki-notification-manager-v0.1.4) (2025-10-03)
+
+
+### Bug Fixes
+
+* Force CI to install and use latest npm ([#12](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/issues/12)) ([92a7519](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/92a75190ab862d7897f99f40be615bdd39eccf51))
+
 ## [0.1.3](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/compare/react-helsinki-notification-manager-v0.1.2...react-helsinki-notification-manager-v0.1.3) (2025-10-03)
 
 
