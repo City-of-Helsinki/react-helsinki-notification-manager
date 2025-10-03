@@ -1,6 +1,6 @@
 {
-  "name": "react-helsinki-notification-manager",
-  "version": "0.0.1",
+  "name": "@city-of-helsinki/react-helsinki-notification-manager",
+  "version": "0.1.0",
   "type": "module",
   "main": "./dist/react-helsinki-notification-manager.js",
   "engines": {
