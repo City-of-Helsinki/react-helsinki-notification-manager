@@ -1,26 +1,21 @@
 name: npm publish
 
 on:
-  push:
-    tags:
-      - 'react-helsinki-notification-manager-v*.*.*'
+  release:
+    types: [published]
+  workflow_dispatch:
 
 jobs:
   publish-npm-stable:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      id-token: write
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-node@v4
+      - name: Build and test
+        uses: City-of-Helsinki/.github/.github/workflows/ci-node.yml@feat/registry-publish-workflows
         with:
-          node-version: 22
-          registry-url: https://registry.npmjs.org/
-      - run: npm install -g npm@latest
-      - run: yarn --frozen-lockfile
-      - run: yarn test  
-      - run: yarn build
-      - run: npm publish --access public
-        env:
-          NPM_CONFIG_PROVENANCE: true
+          node-version: '22'
+          use-yarn: true
+      - name: Publish
+        uses: City-of-Helsinki/.github/.github/workflows/ci-npm-publish.yml@feat/registry-publish-workflows
+        with:
+          node-version: '22'
+          use-ci-build: true

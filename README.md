@@ -40,7 +40,7 @@ import i18next from 'i18next';
 // Initialize i18next (required for the component)
 i18next.init({
   lng: 'fi',
-  resources: {} // Add your translations here
+  resources: {}, // Add your translations here
 });
 
 // Sample notification data
@@ -67,11 +67,11 @@ function App() {
 
 ### NotificationService Props
 
-| Prop            | Type                  | Default                         | Description                               |
-| --------------- | --------------------- | ------------------------------- | ----------------------------------------- |
-| `notifications` | `Array<Notification>` | `[]`                            | Array of notification objects to display  |
-| `language`      | `string`              | `'fi'`                          | Language code (supports 'fi', 'sv', 'en') |
-| `visibletypes`  | `Array<string>`       | `['info', 'warning', 'error']`  | Array of Notification type strings        |
+| Prop            | Type                  | Default                        | Description                               |
+| --------------- | --------------------- | ------------------------------ | ----------------------------------------- |
+| `notifications` | `Array<Notification>` | `[]`                           | Array of notification objects to display  |
+| `language`      | `string`              | `'fi'`                         | Language code (supports 'fi', 'sv', 'en') |
+| `visibletypes`  | `Array<string>`       | `['info', 'warning', 'error']` | Array of Notification type strings        |
 
 ### Notification Object Format
 
