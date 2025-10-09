@@ -10,6 +10,7 @@ jobs:
     uses: City-of-Helsinki/.github/.github/workflows/ci-node.yml@feat/registry-publish-workflows
     with:
       node-version: '22'
+      skip_sonar: true
   publish:
     needs: common
     uses: City-of-Helsinki/.github/.github/workflows/ci-npm-publish.yml@feat/registry-publish-workflows
