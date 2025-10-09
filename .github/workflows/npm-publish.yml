@@ -11,6 +11,7 @@ jobs:
     with:
       node-version: '22'
   publish:
+    needs: common
     uses: City-of-Helsinki/.github/.github/workflows/ci-npm-publish.yml@feat/registry-publish-workflows
     with:
       node-version: '22'
