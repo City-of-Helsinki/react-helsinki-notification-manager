@@ -21,29 +21,22 @@ export default defineConfig({
       formats: ['es'],
     },
     rollupOptions: {
-      external: [
-        'react', 
-        'react-dom', 
-        'react/jsx-runtime',
-        'hds-react',
-        'i18next',
-        'react-i18next'
-      ],
+      external: ['react', 'react-dom', 'react/jsx-runtime', 'hds-react', 'i18next', 'react-i18next'],
       output: {
         globals: {
           'react-dom': 'ReactDom',
-          'react': 'React',
+          react: 'React',
           'react/jsx-runtime': 'ReactJsxRuntime',
           'hds-react': 'HdsReact',
-          'i18next': 'i18next',
-          'react-i18next': 'ReactI18next'
+          i18next: 'i18next',
+          'react-i18next': 'ReactI18next',
         },
         // Properly handle external dependencies
         manualChunks: (id) => {
           if (id.includes('node_modules')) {
             return 'vendor';
           }
-        }
+        },
       },
     },
   },

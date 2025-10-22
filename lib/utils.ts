@@ -10,7 +10,7 @@ const SESSION_NOTIFICATIONS_KEY = 'sessionClosedNotifications';
 export function getClosedNotifications(notifications: Notification[] = []) {
   const persistentNotifications = getPersistentClosedNotifications(notifications);
   const sessionNotifications = getSessionClosedNotifications();
-  
+
   return [...persistentNotifications, ...sessionNotifications];
 }
 
@@ -20,13 +20,13 @@ export function getClosedNotifications(notifications: Notification[] = []) {
 export function getPersistentClosedNotifications(notifications: Notification[] = []) {
   const storage = localStorage.getItem(PERSISTENT_NOTIFICATIONS_KEY);
   let closedNotifications = storage ? JSON.parse(storage) : [];
-  
+
   // Clean up outdated notifications if we have notifications to compare against
   if (notifications.length > 0) {
     closedNotifications = clearOutdatedNotifications(notifications, closedNotifications);
     updatePersistentClosedNotifications(closedNotifications);
   }
-  
+
   return closedNotifications;
 }
 
@@ -45,19 +45,19 @@ export function clearOutdatedNotifications(notifications: Notification[], closed
   if (notifications.length === 0) {
     return closedNotifications;
   }
-  
+
   // Get all non-error notifications
   const persistentNotifications = notifications.filter(
-    notification => notification.level === 'info' || notification.level === 'alert'
+    (notification) => notification.level === 'info' || notification.level === 'alert',
   );
-  
+
   // Keep only hashes that still exist in the current notifications
   return persistentNotifications
-    .filter(notification => {
+    .filter((notification) => {
       const hash = getNotificationHash(notification);
       return closedNotifications.includes(hash);
     })
-    .map(notification => getNotificationHash(notification));
+    .map((notification) => getNotificationHash(notification));
 }
 
 /**
@@ -72,15 +72,9 @@ export function getNotificationHash(notification: Notification) {
  */
 export function updateClosedNotifications(notification: Notification) {
   if (notification.level === 'error') {
-    updateSessionClosedNotifications([
-      ...getSessionClosedNotifications(),
-      getNotificationHash(notification)
-    ]);
+    updateSessionClosedNotifications([...getSessionClosedNotifications(), getNotificationHash(notification)]);
   } else {
-    updatePersistentClosedNotifications([
-      ...getPersistentClosedNotifications([]),
-      getNotificationHash(notification)
-    ]);
+    updatePersistentClosedNotifications([...getPersistentClosedNotifications([]), getNotificationHash(notification)]);
   }
 }
 
