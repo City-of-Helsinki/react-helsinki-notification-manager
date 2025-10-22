@@ -10,7 +10,6 @@ jobs:
     uses: City-of-Helsinki/.github/.github/workflows/ci-node.yml@main
     with:
       node-version: '22'
-      skip_sonar: true
       upload_artifacts: true
   publish:
     needs: common
