@@ -16,3 +16,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: google-github-actions/release-please-action@v4
+  build:
+    needs: release-please
+    if: ${{ jobs.release-please.outputs.release_created }}
+    uses: City-of-Helsinki/.github/.github/workflows/ci-node.yml@main
+    secrets: inherit
+    with:
+      node-version: '22'
+      upload_artifacts: true
+  publish:
+    needs: build
+    secrets: inherit
+    uses: City-of-Helsinki/.github/.github/workflows/ci-npm-publish.yml@main
+    with:
+      node-version: '22'
+      use-ci-build: true
