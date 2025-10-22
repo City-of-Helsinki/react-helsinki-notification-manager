@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.5](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/compare/react-helsinki-notification-manager-v0.1.4...react-helsinki-notification-manager-v0.1.5) (2025-10-22)
+
+
+### Bug Fixes
+
+* Added repository to package.json as it was required ([#14](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/issues/14)) ([a4dff3d](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/a4dff3d7dad87c60264238f71d78a1b416e3042f))
+* Workflow changes for automation ([#16](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/issues/16)) ([b421c76](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/b421c76fb5e711707400e4ea86d185f41043e3d6))
+
 ## [0.1.4](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/compare/react-helsinki-notification-manager-v0.1.3...react-helsinki-notification-manager-v0.1.4) (2025-10-03)
 
 ### Bug Fixes
