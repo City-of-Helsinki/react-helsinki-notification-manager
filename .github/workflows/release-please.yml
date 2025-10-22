@@ -14,11 +14,14 @@ permissions:
 jobs:
   release-please:
     runs-on: ubuntu-latest
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
     steps:
       - uses: google-github-actions/release-please-action@v4
+        id: release
   build:
     needs: release-please
-    if: ${{ jobs.release-please.outputs.release_created }}
+    if: ${{ needs.release-please.outputs.release_created }}
     uses: City-of-Helsinki/.github/.github/workflows/ci-node.yml@main
     secrets: inherit
     with:
