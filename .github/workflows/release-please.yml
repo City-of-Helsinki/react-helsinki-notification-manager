@@ -28,6 +28,7 @@ jobs:
     with:
       node-version: '22'
       upload_artifacts: true
+      skip-sonar: true
   publish:
     needs: build
     secrets: inherit
