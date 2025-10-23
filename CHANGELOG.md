@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.8](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/compare/react-helsinki-notification-manager-v0.1.7...react-helsinki-notification-manager-v0.1.8) (2025-10-23)
+
+
+### Bug Fixes
+
+* Ignore sonar on CI and prettierignore update ([#22](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/issues/22)) ([8fcf58b](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/8fcf58b8d6bf0f0383500c1da0264817ea5f079e))
+* Typo with the param configuration ([#23](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/issues/23)) ([711df1f](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/711df1f1763408ca707a2c9cc1a3a5f369afb368))
+
 ## [0.1.7](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/compare/react-helsinki-notification-manager-v0.1.6...react-helsinki-notification-manager-v0.1.7) (2025-10-23)
 
 
