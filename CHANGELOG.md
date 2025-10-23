@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.9](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/compare/react-helsinki-notification-manager-v0.1.8...react-helsinki-notification-manager-v0.1.9) (2025-10-23)
+
+
+### Bug Fixes
+
+* Extend commitlint ignore ([#25](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/issues/25)) ([9ef4aae](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/9ef4aae9ba1b8265383424d9ddde532b0986c36e))
+
 ## [0.1.8](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/compare/react-helsinki-notification-manager-v0.1.7...react-helsinki-notification-manager-v0.1.8) (2025-10-23)
 
 
