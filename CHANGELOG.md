@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.7](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/compare/react-helsinki-notification-manager-v0.1.6...react-helsinki-notification-manager-v0.1.7) (2025-10-23)
+
+
+### Bug Fixes
+
+* Fix lint errors and add sonar config. ([#20](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/issues/20)) ([3f2d8bc](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/3f2d8bcf41d2a8813a1427bff092afac1e3eecd1))
+
 ## [0.1.6](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/compare/react-helsinki-notification-manager-v0.1.5...react-helsinki-notification-manager-v0.1.6) (2025-10-23)
 
 ### Bug Fixes
