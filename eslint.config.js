@@ -9,7 +9,7 @@ import tseslint from 'typescript-eslint';
 
 const tsConfig = tseslint.config({
   files: ['lib/**/*.{ts,tsx}', 'src/**/*.{ts,tsx}'],
-  ignores: ['.commitlintrc.mjs', 'dist', 'node_modules', '.github'],
+  ignores: ['dist', 'node_modules'],
   extends: [
     eslint.configs.recommended,
     tseslint.configs.recommended,

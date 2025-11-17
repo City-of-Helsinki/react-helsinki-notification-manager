@@ -1,2 +1,4 @@
+.commitlintrc.mjs
+.github
 dist
 CHANGELOG.md
