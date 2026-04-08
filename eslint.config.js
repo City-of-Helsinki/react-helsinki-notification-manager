@@ -1,10 +1,10 @@
 import eslint from '@eslint/js';
-import stylisticTsPlugin from '@stylistic/eslint-plugin-ts';
+import stylisticPlugin from '@stylistic/eslint-plugin';
 import eslintConfigPrettier from 'eslint-config-prettier';
-import importPlugin from 'eslint-plugin-import';
-import reactPlugin from 'eslint-plugin-react';
+import importPlugin from 'eslint-plugin-import-x';
+import reactPlugin from '@eslint-react/eslint-plugin';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
-import jestPlugin from 'eslint-plugin-jest';
+import vitestGlobals from "eslint-config-vitest-globals/flat";
 import tseslint from 'typescript-eslint';
 
 const tsConfig = tseslint.config({
@@ -15,6 +15,7 @@ const tsConfig = tseslint.config({
     tseslint.configs.recommended,
     importPlugin.flatConfigs.recommended,
     eslintConfigPrettier,
+    vitestGlobals()
   ],
   settings: {
     react: {
@@ -26,16 +27,12 @@ const tsConfig = tseslint.config({
     },
   },
   plugins: {
-    '@stylistic/ts': stylisticTsPlugin,
+    '@stylistic': stylisticPlugin,
     react: reactPlugin,
     'react-hooks': reactHooksPlugin,
-    jest: jestPlugin,
-  },
-  languageOptions: {
-    globals: jestPlugin.environments.globals.globals,
   },
   rules: {
-    '@stylistic/ts/brace-style': [
+    '@stylistic/brace-style': [
       'error',
       '1tbs',
       {
@@ -43,18 +40,11 @@ const tsConfig = tseslint.config({
       },
     ],
     '@typescript-eslint/explicit-function-return-type': 'off',
-    '@stylistic/ts/func-call-spacing': ['error'],
     '@typescript-eslint/member-ordering': ['warn'],
     '@typescript-eslint/no-require-imports': ['error'],
-    'react/no-unused-prop-types': [
-      'warn',
-      {
-        skipShapeProps: true,
-      },
-    ],
     'react-hooks/exhaustive-deps': 'warn',
     'array-bracket-spacing': ['warn', 'never'],
-    'import/order': [
+    'import-x/order': [
       'error',
       {
         groups: ['builtin', 'external', ['internal', 'parent'], ['sibling', 'index']],
@@ -65,7 +55,9 @@ const tsConfig = tseslint.config({
         },
       },
     ],
-    'import/no-duplicates': 0,
+    'import-x/no-duplicates': 0,
+    'import-x/no-named-as-default-member': 0,
+    'import-x/no-unresolved': 0,
     'max-len': [
       'warn',
       {
