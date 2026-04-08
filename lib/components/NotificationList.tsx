@@ -1,5 +1,6 @@
 import {
   Notification as NotificationComponent,
+  // eslint-disable-next-line import-x/named
   NotificationType as NotificationLevel,
   NotificationSize,
   Link,

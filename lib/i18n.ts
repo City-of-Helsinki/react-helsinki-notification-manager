@@ -1,5 +1,6 @@
-import { createInstance, i18n as I18nInstance } from 'i18next';
-const i18n: I18nInstance = createInstance({
+import i18n from 'i18next';
+
+i18n.init({
   fallbackLng: 'fi',
   interpolation: {
     escapeValue: false, // React already does escaping
@@ -31,7 +32,5 @@ const i18n: I18nInstance = createInstance({
     },
   },
 });
-
-i18n.init();
 
 export default i18n;
