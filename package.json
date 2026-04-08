@@ -46,7 +46,10 @@
   },
   "resolutions": {
     "**/micromatch/picomatch": "^4.0.4",
-    "**/@rollup/pluginutils/picomatch": "^4.0.4"
+    "**/@rollup/pluginutils/picomatch": "^4.0.4",
+    "**/@microsoft/api-extractor/minimatch": "^9.0.7",
+    "**/vite-plugin-dts/@vue/language-core/minimatch": "^9.0.7",
+    "**/@typescript-eslint/parser/@typescript-eslint/typescript-estree/minimatch": "^9.0.7"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^20.5.0",
