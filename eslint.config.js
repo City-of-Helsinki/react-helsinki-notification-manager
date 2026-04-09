@@ -4,7 +4,7 @@ import eslintConfigPrettier from 'eslint-config-prettier';
 import importPlugin from 'eslint-plugin-import-x';
 import reactPlugin from '@eslint-react/eslint-plugin';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
-import vitestGlobals from "eslint-config-vitest-globals/flat";
+import vitestGlobals from 'eslint-config-vitest-globals/flat';
 import tseslint from 'typescript-eslint';
 
 const tsConfig = tseslint.config({
@@ -15,7 +15,7 @@ const tsConfig = tseslint.config({
     tseslint.configs.recommended,
     importPlugin.flatConfigs.recommended,
     eslintConfigPrettier,
-    vitestGlobals()
+    vitestGlobals(),
   ],
   settings: {
     react: {
