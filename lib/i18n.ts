@@ -1,6 +1,6 @@
-import { createInstance } from 'i18next';
+import { createInstance, type i18n as I18nextInstance } from 'i18next';
 
-const i18n = createInstance();
+const i18n: I18nextInstance = createInstance();
 
 i18n.init({
   fallbackLng: 'fi',
