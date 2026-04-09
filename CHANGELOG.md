@@ -1,5 +1,37 @@
 # Changelog
 
+## [0.1.10](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/compare/react-helsinki-notification-manager-v0.1.9...react-helsinki-notification-manager-v0.1.10) (2026-04-09)
+
+
+### Bug Fixes
+
+* Eslint vitestGlobals applied to test files only Refs: KEH-281 ([2e486e5](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/2e486e567d4380e6da2ffd7fefe60b93ea0c93f7))
+* I18n createInstance Refs: KEH-281 ([6abe298](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/6abe298af5dfec30258a92daac980776c40e9c8b))
+* NotificationList import NotificationType Refs: KEH-281 ([0e83025](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/0e830256294de6b096c90d2217709d4b87d924cf))
+* Typescript fixes Refs: KEH-281 ([1802c41](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/1802c41d1835f722a5b749bd08c31d5aaf25a2f0))
+
+
+### Dependencies
+
+* Apply minor updates RATY-299 ([5541816](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/55418161530606d2b379722326e88aaacca4949b))
+* Bump @vitejs/plugin-react Refs: KEH-281 ([e785f21](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/e785f21a9d259e6f0a0bd7ad0b89fb08b7f69c48))
+* Bump commitlint Refs: KEH-281 ([999634d](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/999634d10a2abce8c0815f04d0b27fdbde93b678))
+* Bump flatted from 3.3.3 to 3.4.2 ([7ed4cdc](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/7ed4cdcb933d165c59fe85340bd2553d1f1e3770))
+* Bump immutable from 5.1.2 to 5.1.5 ([63d966b](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/63d966b1ae2d1402a8b09606662a9bc412c8e852))
+* Bump js-yaml from 4.1.0 to 4.1.1 ([0fadc88](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/0fadc883e522a507b41229c8e4574e82ffc6874b))
+* Bump jsdom Refs: KEH-281 ([6cd56ae](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/6cd56aee4b8581018d990f87aa5bf64dcec47c1f))
+* Bump lodash from 4.17.21 to 4.17.23 ([dc4f5b2](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/dc4f5b20754438527f2fe9a0109e0290aad987af))
+* Bump rollup from 4.41.0 to 4.59.0 ([c6ee2b7](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/c6ee2b765abca440eb5407cb6974ea3cd1ad3277))
+* Bump sass Refs: KEH-281 ([e8ba41e](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/e8ba41e4b460146c14058020a9cc17daf612d3a7))
+* Bump vite and vitest Refs: KEH-281 ([ebb1b05](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/ebb1b0586db3eab90a8516ad990e402f182aae27))
+* Bump vite from 6.3.5 to 6.4.1 ([0ed0298](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/0ed0298c863dd97c4d95498099ebaff79b16589a))
+* Migrate eslint to v10 Refs: KEH-281 ([7a6cf23](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/7a6cf23b356db0101d7a1b7ac902fd43d4ed47fd))
+* Minimatch resolutions Refs: KEH-281 ([bc25c30](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/bc25c308f5b1d061c77942c4fe7474eebc3ca283))
+* Picomatch resolution Refs: KEH-281 ([eaeb8b4](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/eaeb8b4417e492480a7910d84831815154e1d62e))
+* Remove unused @types/jest Refs: KEH-281 ([660e97a](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/660e97a3d5b5814acec7bc85d833e447cce75cc8))
+* Remove unused dependencies Refs: KEH-281 ([006d419](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/006d419d93f3ba655239528c5db44f4c1d9df010))
+* Remove unused rollup-plugin-visualizer Refs: KEH-281 ([653aa35](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/653aa354440cb8a454fff00c6f2d15ab10635fd5))
+
 ## [0.1.9](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/compare/react-helsinki-notification-manager-v0.1.8...react-helsinki-notification-manager-v0.1.9) (2025-10-23)
 
 
