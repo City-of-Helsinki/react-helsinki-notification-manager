@@ -15,7 +15,6 @@ const tsConfig = tseslint.config({
     tseslint.configs.recommended,
     importPlugin.flatConfigs.recommended,
     eslintConfigPrettier,
-    vitestGlobals(),
   ],
   settings: {
     react: {
@@ -70,4 +69,9 @@ const tsConfig = tseslint.config({
   },
 });
 
-export default tsConfig;
+const testConfig = tseslint.config({
+  files: ['**/*.test.{ts,tsx}', 'lib/__tests__/**/*.{ts,tsx}'],
+  extends: [vitestGlobals()],
+});
+
+export default [...tsConfig, ...testConfig];
