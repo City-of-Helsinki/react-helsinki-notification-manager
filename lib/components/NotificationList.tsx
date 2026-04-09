@@ -1,10 +1,5 @@
-import {
-  Notification as NotificationComponent,
-  // eslint-disable-next-line import-x/named
-  NotificationType as NotificationLevel,
-  NotificationSize,
-  Link,
-} from 'hds-react';
+import { Notification as NotificationComponent, NotificationSize, Link } from 'hds-react';
+import type { NotificationType as NotificationLevel } from 'hds-react';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
