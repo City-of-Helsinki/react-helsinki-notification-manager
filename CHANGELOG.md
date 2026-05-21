@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.11](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/compare/react-helsinki-notification-manager-v0.1.10...react-helsinki-notification-manager-v0.1.11) (2026-05-21)
+
+
+### Dependencies
+
+* Bump fast-uri from 3.0.6 to 3.1.2 ([df4bf00](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/df4bf00509d64d97064c0bfabfd8d153918fa67c))
+* Bump postcss from 8.5.3 to 8.5.14 ([a86356d](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/a86356d4d2b58322e80411429b05b50deec54cc3))
+
 ## [0.1.10](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/compare/react-helsinki-notification-manager-v0.1.9...react-helsinki-notification-manager-v0.1.10) (2026-04-09)
 
 
