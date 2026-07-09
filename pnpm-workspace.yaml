@@ -1,3 +1,6 @@
+packages:
+  - '.'
+
 # Don't allow dependencies to be used before they have been released for at least 1 week
 minimumReleaseAge: 10080
 
