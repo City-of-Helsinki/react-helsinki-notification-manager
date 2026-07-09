@@ -1,6 +1,10 @@
 node_modules
 .DS_Store
 src/.DS_Store
-yarn-error.log
 coverage/
 dist/
+# yarn – not used anymore
+yarn.lock
+.yarn/
+.yarnrc.yml
+yarn-error.log

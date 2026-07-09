@@ -1,0 +1,20 @@
+# Don't allow dependencies to be used before they have been released for at least 1 week
+minimumReleaseAge: 10080
+
+# Use minimumReleaseAgeExclude temporarily for emergency security vulnerability fixes
+#minimumReleaseAgeExclude:
+
+# Don't warn about ignored build scripts
+ignoredBuiltDependencies: []
+
+# Hoist all dependencies to the root of node_modules, for better compatibility with packages that expect flat node_modules
+shamefullyHoist: true
+
+allowBuilds:
+  '@parcel/watcher': true
+  unrs-resolver: true
+
+overrides:
+  'picomatch@2.3.2': '^4.0.4'
+  'minimatch@3.0.8': '^9.0.7'
+  'minimatch@9.0.3': '^9.0.7'

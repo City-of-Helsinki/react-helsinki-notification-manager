@@ -15,7 +15,7 @@ Currently only supports 3 languages, Finnish, Swedish and English, this only due
 ```bash
 npm install react-helsinki-notification-service
 # or
-yarn add react-helsinki-notification-service
+pnpm add react-helsinki-notification-service
 ```
 
 ## Installation & Usage
