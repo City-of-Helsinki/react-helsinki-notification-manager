@@ -27,8 +27,8 @@ jobs:
     secrets: inherit
     with:
       node-version: '22'
-      upload_artifacts: true
-      skip_sonar: true
+      upload-artifacts: true
+      skip-sonar: true
   publish:
     needs: build
     secrets: inherit
