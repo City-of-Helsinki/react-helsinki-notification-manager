@@ -6,7 +6,7 @@ React Helsinki Notification Service is a standalone component to display HDS Not
 
 ## Development
 
-When developing the library keep in mind the end goal which is to have this library eventually become part of HDS ecosystem. Current plan is to have this standalone component working and up to date until HDS4 adaptation has increased to sufficient level that this can easily be adopted from HDS instead.
+When developing the library keep in mind the end goal which is to have this library eventually become part of HDS ecosystem. Current plan is to have this standalone component working and up to date until HDS5 adaptation has increased to sufficient level that this can easily be adopted from HDS instead.
 
 Currently only supports 3 languages, Finnish, Swedish and English, this only due to having these translations reside inside the component. One potential development direction is to have these translations be extendable by the software that uses this component.
 
@@ -15,7 +15,7 @@ Currently only supports 3 languages, Finnish, Swedish and English, this only due
 ```bash
 npm install react-helsinki-notification-service
 # or
-yarn add react-helsinki-notification-service
+pnpm add react-helsinki-notification-service
 ```
 
 ## Installation & Usage
@@ -27,7 +27,7 @@ This library uses peer dependencies for React, HDS, and i18next. Please see [DEP
 npm install react-helsinki-notification-manager
 
 # Install peer dependencies (if you don't already have them)
-npm install react@^18.0.0 react-dom@^18.0.0 hds-react@^4.2.0 i18next@^24.2.3 react-i18next@^15.4.1
+npm install react@^18.0.0 react-dom@^18.0.0 hds-react@^5.0.0 i18next@^24.2.3 react-i18next@^15.4.1
 ```
 
 ### Basic Usage

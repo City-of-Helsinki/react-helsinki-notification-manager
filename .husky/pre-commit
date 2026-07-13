@@ -1,2 +1,2 @@
 # .husky/pre-commit
-yarn test --no-watch
+pnpm test --no-watch
