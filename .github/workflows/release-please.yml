@@ -19,14 +19,12 @@ jobs:
     needs: release-please
     if: ${{ needs.release-please.outputs.release_created }}
     uses: City-of-Helsinki/.github/.github/workflows/ci-pnpm-node.yml@main
-    secrets: inherit
     with:
       node-version: '22'
       upload-artifacts: true
       skip-sonar: true
   publish:
     needs: build
-    secrets: inherit
     uses: City-of-Helsinki/.github/.github/workflows/ci-npm-publish.yml@main
     with:
       node-version: '22'
