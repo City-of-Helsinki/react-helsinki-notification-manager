@@ -4,6 +4,9 @@ packages:
 # Don't allow dependencies to be used before they have been released for at least 1 week
 minimumReleaseAge: 10080
 
+minimumReleaseAgeExclude:
+  - nanoid@3.3.18
+
 # Use minimumReleaseAgeExclude temporarily for emergency security vulnerability fixes
 #minimumReleaseAgeExclude:
 
