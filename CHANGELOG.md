@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.2.0](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/compare/react-helsinki-notification-manager-v0.1.11...react-helsinki-notification-manager-v0.2.0) (2026-08-12)
+
+
+### Features
+
+* Switch package manager to pnpm Refs: NS-211 ([#49](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/issues/49)) ([05cc1b6](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/05cc1b625b7a40d51faafdd038f3ac05a58e9a9a))
+
+
+### Dependencies
+
+* Bump @babel/core from 7.29.0 to 7.29.7 ([451e147](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/451e1474ce5befc990818f38698f2094ed4c54a8))
+* Bump fast-uri from 3.1.3 to 3.1.5 ([5c0bbf7](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/5c0bbf79300a4a49ef0dd53e4dac18b34e7a6158))
+* Bump js-yaml from 4.1.1 to 4.3.0 ([e5692c5](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/e5692c51803e1bf9feba06b77930a93e68c1a79b))
+* Bump undici from 7.24.7 to 7.28.0 ([7f6e9b3](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/7f6e9b321480e449c6d404d8ee5e5f86b4cbd818))
+* Fast-uri minimumReleaseAgeExclude Refs: RATY-357 ([733daac](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/733daacb4cd68e8f08a2d6b7d655fcca3e1f558b))
+
 ## [0.1.11](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/compare/react-helsinki-notification-manager-v0.1.10...react-helsinki-notification-manager-v0.1.11) (2026-06-22)
 
 
