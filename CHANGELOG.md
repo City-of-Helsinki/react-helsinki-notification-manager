@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.3](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/compare/react-helsinki-notification-manager-v0.2.2...react-helsinki-notification-manager-v0.2.3) (2026-10-20)
+
+
+### Bug Fixes
+
+* Declare MIT license in package.json Refs: RATY-422 ([0c5974b](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/0c5974b3807d6a913cd8fabd768d080c6aa2d303))
+
 ## [0.2.2](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/compare/react-helsinki-notification-manager-v0.2.1...react-helsinki-notification-manager-v0.2.2) (2026-10-13)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@city-of-helsinki/react-helsinki-notification-manager",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "license": "MIT",
   "type": "module",
   "main": "./dist/react-helsinki-notification-manager.js",
