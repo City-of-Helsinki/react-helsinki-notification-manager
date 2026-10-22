@@ -4,7 +4,7 @@
   "license": "MIT",
   "type": "module",
   "main": "./dist/react-helsinki-notification-manager.js",
-  "packageManager": "pnpm@11.9.0",
+  "packageManager": "pnpm@11.28.5",
   "engines": {
     "node": "^24"
   },
