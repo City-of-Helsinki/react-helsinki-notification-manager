@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.3.0](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/compare/react-helsinki-notification-manager-v0.2.3...react-helsinki-notification-manager-v0.3.0) (2026-10-30)
+
+
+### Features
+
+* Bump node to v24 Refs: NS-218 ([12803e4](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/12803e47857c7cf590f70bd1ef32f1814c722ef4))
+
+
+### Dependencies
+
+* Bump types/node ([28d4cb8](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/28d4cb8224bc93b4ee6761d2bdbf1e83881a5e68))
+* Bump vitest/coverage ([62da50a](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/62da50ae0bc5adea5dcaf0e7c12308d98532d65a))
+
 ## [0.2.3](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/compare/react-helsinki-notification-manager-v0.2.2...react-helsinki-notification-manager-v0.2.3) (2026-10-20)
 
 
