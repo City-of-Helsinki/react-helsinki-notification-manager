@@ -8,7 +8,9 @@ export default defineConfig({
   plugins: [
     react(),
     dts({
-      include: ['lib'],
+      // The root tsconfig.json only has project references ("files": []),
+      // so the plugin must be pointed at the config that includes lib.
+      tsconfigPath: './tsconfig.build.json',
       insertTypesEntry: true,
     }),
   ],
