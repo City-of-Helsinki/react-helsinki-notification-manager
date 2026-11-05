@@ -13,5 +13,7 @@ allowBuilds:
 
 overrides:
   # hds-react 5 depends on @typescript-eslint/parser 6, which pins a
-  # vulnerable minimatch 9.0.3. Can be removed with hds-react 6.
-  '@typescript-eslint/typescript-estree@6>minimatch': '^9.0.9'
+  # vulnerable minimatch 9.0.3. Use the 10.x line already in the tree
+  # (same named-export API) so no new minimatch version is added; every
+  # version below 11.0.1 has GHSA-g3hv-75wg-m249. Remove with hds-react 6.
+  '@typescript-eslint/typescript-estree@6>minimatch': '^10.2.6'
