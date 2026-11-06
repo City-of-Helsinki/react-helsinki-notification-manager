@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.3.1](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/compare/react-helsinki-notification-manager-v0.3.0...react-helsinki-notification-manager-v0.3.1) (2026-11-06)
+
+
+### Bug Fixes
+
+* Include typescript declarations in published package ([784f929](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/784f9297a2d929e0fdbec7dd15dbb1c86d096d85))
+* Update vulnerable dependencies and clean up pnpm config RATY-357 ([#65](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/issues/65)) ([1afc509](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/1afc50901ba4febd62caf58da1c36cac73decb6a))
+
+
+### Dependencies
+
+* Bump undici from 7.28.0 to 7.30.1 ([6e34702](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/6e3470250d48dfeea8ed59cf750594f0db888788))
+
 ## [0.3.0](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/compare/react-helsinki-notification-manager-v0.2.3...react-helsinki-notification-manager-v0.3.0) (2026-10-30)
 
 
