@@ -12,28 +12,24 @@ Currently only supports 3 languages, Finnish, Swedish and English, this only due
 
 ## Installation
 
-```bash
-npm install react-helsinki-notification-service
-# or
-pnpm add react-helsinki-notification-service
-```
-
-## Installation & Usage
-
-This library uses peer dependencies for React, HDS, and i18next. Please see [DEPENDENCY_MANAGEMENT.md](./DEPENDENCY_MANAGEMENT.md) for detailed installation instructions and troubleshooting common dependency issues.
+This library uses peer dependencies for React, HDS, and i18next.
 
 ```bash
 # Install the library
-npm install react-helsinki-notification-manager
+npm install @city-of-helsinki/react-helsinki-notification-manager
+# or
+pnpm add @city-of-helsinki/react-helsinki-notification-manager
 
 # Install peer dependencies (if you don't already have them)
 npm install react@^18.0.0 react-dom@^18.0.0 hds-react@^5.0.0 i18next@^24.2.3 react-i18next@^15.4.1
 ```
 
+## Usage
+
 ### Basic Usage
 
 ```jsx
-import { NotificationService } from 'react-helsinki-notification-manager';
+import { NotificationService } from '@city-of-helsinki/react-helsinki-notification-manager';
 import { I18nextProvider } from 'react-i18next';
 import i18next from 'i18next';
 
@@ -67,20 +63,20 @@ function App() {
 
 ### NotificationService Props
 
-| Prop            | Type                  | Default                        | Description                               |
-| --------------- | --------------------- | ------------------------------ | ----------------------------------------- |
-| `notifications` | `Array<Notification>` | `[]`                           | Array of notification objects to display  |
-| `language`      | `string`              | `'fi'`                         | Language code (supports 'fi', 'sv', 'en') |
-| `visibletypes`  | `Array<string>`       | `['info', 'warning', 'error']` | Array of Notification type strings        |
+| Prop            | Type                                  | Default                      | Description                                       |
+| --------------- | ------------------------------------- | ---------------------------- | ------------------------------------------------- |
+| `notifications` | `Array<Notification>`                 | – (required)                 | Array of notification objects to display          |
+| `language`      | `string`                              | `'fi'`                       | Language code (supports 'fi', 'sv', 'en')         |
+| `visibleTypes`  | `Array<'info' \| 'alert' \| 'error'>` | `['info', 'alert', 'error']` | Notification levels to display, others are hidden |
 
 ### Notification Object Format
 
 ```typescript
 interface Notification {
   id: string;
-  title: string;
+  title?: string;
   content: string;
-  level: 'info' | 'success' | 'alert' | 'error';
+  level: 'info' | 'alert' | 'error';
   modified_at: string;
   external_url?: string;
   external_url_text?: string;
