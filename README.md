@@ -13,9 +13,9 @@ Currently only supports 3 languages, Finnish, Swedish and English, this only due
 ## Installation
 
 ```bash
-npm install react-helsinki-notification-service
+npm install @city-of-helsinki/react-helsinki-notification-manager
 # or
-pnpm add react-helsinki-notification-service
+pnpm add @city-of-helsinki/react-helsinki-notification-manager
 ```
 
 ## Installation & Usage
@@ -24,7 +24,7 @@ This library uses peer dependencies for React, HDS, and i18next. Please see [DEP
 
 ```bash
 # Install the library
-npm install react-helsinki-notification-manager
+npm install @city-of-helsinki/react-helsinki-notification-manager
 
 # Install peer dependencies (if you don't already have them)
 npm install react@^18.0.0 react-dom@^18.0.0 hds-react@^5.0.0 i18next@^24.2.3 react-i18next@^15.4.1
@@ -33,7 +33,7 @@ npm install react@^18.0.0 react-dom@^18.0.0 hds-react@^5.0.0 i18next@^24.2.3 rea
 ### Basic Usage
 
 ```jsx
-import { NotificationService } from 'react-helsinki-notification-manager';
+import { NotificationService } from '@city-of-helsinki/react-helsinki-notification-manager';
 import { I18nextProvider } from 'react-i18next';
 import i18next from 'i18next';
 
