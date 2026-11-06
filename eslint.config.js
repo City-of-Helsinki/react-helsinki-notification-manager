@@ -20,7 +20,7 @@ const tsConfig = tseslint.config({
     react: {
       version: 'detect',
     },
-    'import/resolver': {
+    'import-x/resolver': {
       typescript: true,
       node: true,
     },
