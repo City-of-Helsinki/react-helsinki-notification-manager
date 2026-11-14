@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.2](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/compare/react-helsinki-notification-manager-v0.3.1...react-helsinki-notification-manager-v0.3.2) (2026-11-14)
+
+
+### Documentation
+
+* Fix outdated api reference and broken link in readme ([d7b7466](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/d7b7466e48023970443332a1bbfa7295f64a4325))
+* Use scoped package name in readme install instructions ([be07805](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/commit/be078058249084e47dd5a631d653a657640c0fb0))
+
 ## [0.3.1](https://github.com/City-of-Helsinki/react-helsinki-notification-manager/compare/react-helsinki-notification-manager-v0.3.0...react-helsinki-notification-manager-v0.3.1) (2026-11-06)
 
 
