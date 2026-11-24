@@ -41,7 +41,7 @@
   },
   "peerDependencies": {
     "hds-react": "^5.0.0",
-    "i18next": "^24.2.3",
+    "i18next": "^26.3.4",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-i18next": "^15.4.1"
@@ -68,7 +68,7 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "hds-react": "^5.2.1",
     "husky": "^9.1.7",
-    "i18next": "^24.2.3",
+    "i18next": "^26.3.4",
     "jsdom": "^29.0.2",
     "prettier": "^3.8.1",
     "react": "^18.0.0",
